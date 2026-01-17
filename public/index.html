@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employee Leave Management System</title>
+    <link rel="stylesheet" href="css/style.css">
+<script src="https://sites.super.myninja.ai/_assets/ninja-daytona-script.js"></script>
+</head>
+<body>
+    <div class="login-container">
+        <div class="login-box">
+            <div class="login-header">
+                <h1>🏢 Leave Management</h1>
+                <p>Employee Portal</p>
+            </div>
+            
+            <form id="loginForm" class="login-form">
+                <div class="form-group">
+                    <label for="username">Username</label>
+                    <input type="text" id="username" name="username" required 
+                           placeholder="Enter your username" autocomplete="username">
+                </div>
+                
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" name="password" required 
+                           placeholder="Enter your password" autocomplete="current-password">
+                </div>
+                
+                <div class="form-group">
+                    <label for="role">I am a:</label>
+                    <select id="role" name="role" required>
+                        <option value="">Select your role</option>
+                        <option value="employee">Employee</option>
+                        <option value="manager">Manager</option>
+                    </select>
+                </div>
+                
+                <button type="submit" class="btn btn-primary btn-block">
+                    Login
+                </button>
+            </form>
+            
+            <div class="login-info">
+                <h3>Demo Credentials:</h3>
+                <div class="demo-credentials">
+                    <p><strong>Employees:</strong></p>
+                    <p>john_doe / password123</p>
+                    <p>jane_smith / password123</p>
+                    <p>mike_wilson / password123</p>
+                    <p>sarah_jones / password123</p>
+                    <p><strong>Manager:</strong></p>
+                    <p>manager_alex / password123</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div id="notification"></div>
+    
+    <script src="js/login.js"></script>
+</body>
+</html>

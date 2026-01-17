@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employee Dashboard - Leave Management</title>
+    <link rel="stylesheet" href="css/style.css">
+<script src="https://sites.super.myninja.ai/_assets/ninja-daytona-script.js"></script>
+</head>
+<body>
+    <div class="dashboard-container">
+        <!-- Header -->
+        <header class="dashboard-header">
+            <div class="header-content">
+                <h1>🏢 Employee Dashboard</h1>
+                <div class="user-info">
+                    <span id="userName">Welcome, Employee</span>
+                    <button onclick="logout()" class="btn btn-secondary btn-small">Logout</button>
+                </div>
+            </div>
+        </header>
+
+        <!-- Navigation -->
+        <nav class="dashboard-nav">
+            <button class="nav-btn active" data-tab="overview">Overview</button>
+            <button class="nav-btn" data-tab="request">New Request</button>
+            <button class="nav-btn" data-tab="my-leaves">My Leaves</button>
+            <button class="nav-btn" data-tab="calendar">Calendar</button>
+        </nav>
+
+        <!-- Main Content -->
+        <main class="dashboard-content">
+            <!-- Overview Tab -->
+            <div id="overview" class="tab-content active">
+                <div class="overview-cards">
+                    <div class="card">
+                        <h3>📊 Leave Balances</h3>
+                        <div id="leaveBalancesOverview"></div>
+                    </div>
+                    <div class="card">
+                        <h3>📋 Pending Requests</h3>
+                        <div id="pendingRequestsOverview"></div>
+                    </div>
+                    <div class="card">
+                        <h3>✅ Approved This Month</h3>
+                        <div id="approvedThisMonth"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- New Request Tab -->
+            <div id="request" class="tab-content">
+                <div class="request-form-container">
+                    <h2>Submit Leave Request</h2>
+                    <form id="leaveRequestForm">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="leaveType">Leave Type *</label>
+                                <select id="leaveType" name="leaveType" required>
+                                    <option value="">Select leave type</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="startDate">Start Date *</label>
+                                <input type="date" id="startDate" name="startDate" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="endDate">End Date *</label>
+                                <input type="date" id="endDate" name="endDate" required>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="totalDays">Total Days</label>
+                            <input type="text" id="totalDays" name="totalDays" readonly class="readonly-field">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="reason">Reason for Leave *</label>
+                            <textarea id="reason" name="reason" rows="4" required 
+                                      placeholder="Please provide a reason for your leave request"></textarea>
+                        </div>
+
+                        <div class="form-actions">
+                            <button type="submit" class="btn btn-primary">Submit Request</button>
+                            <button type="reset" class="btn btn-secondary">Clear Form</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <!-- My Leaves Tab -->
+            <div id="my-leaves" class="tab-content">
+                <div class="leaves-container">
+                    <h2>My Leave Requests</h2>
+                    <div class="filter-bar">
+                        <button class="filter-btn active" data-filter="all">All</button>
+                        <button class="filter-btn" data-filter="pending">Pending</button>
+                        <button class="filter-btn" data-filter="approved">Approved</button>
+                        <button class="filter-btn" data-filter="rejected">Rejected</button>
+                    </div>
+                    <div id="myLeavesList" class="leaves-list"></div>
+                </div>
+            </div>
+
+            <!-- Calendar Tab -->
+            <div id="calendar" class="tab-content">
+                <div class="calendar-container">
+                    <h2>Leave Calendar</h2>
+                    <div class="calendar-controls">
+                        <button id="prevMonth" class="btn btn-secondary">Previous</button>
+                        <span id="currentMonth"></span>
+                        <button id="nextMonth" class="btn btn-secondary">Next</button>
+                    </div>
+                    <div id="calendarGrid" class="calendar-grid"></div>
+                    <div id="calendarLegend" class="calendar-legend"></div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <div id="notification"></div>
+
+    <script src="js/employee-dashboard.js"></script>
+</body>
+</html>

@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manager Dashboard - Leave Management</title>
+    <link rel="stylesheet" href="css/style.css">
+<script src="https://sites.super.myninja.ai/_assets/ninja-daytona-script.js"></script>
+</head>
+<body>
+    <div class="dashboard-container">
+        <!-- Header -->
+        <header class="dashboard-header">
+            <div class="header-content">
+                <h1>🏢 Manager Dashboard</h1>
+                <div class="user-info">
+                    <span id="userName">Welcome, Manager</span>
+                    <button onclick="logout()" class="btn btn-secondary btn-small">Logout</button>
+                </div>
+            </div>
+        </header>
+
+        <!-- Navigation -->
+        <nav class="dashboard-nav">
+            <button class="nav-btn active" data-tab="overview">Overview</button>
+            <button class="nav-btn" data-tab="pending">Pending Requests</button>
+            <button class="nav-btn" data-tab="all-requests">All Requests</button>
+            <button class="nav-btn" data-tab="calendar">Calendar</button>
+            <button class="nav-btn" data-tab="employees">Employees</button>
+        </nav>
+
+        <!-- Main Content -->
+        <main class="dashboard-content">
+            <!-- Overview Tab -->
+            <div id="overview" class="tab-content active">
+                <div class="overview-cards">
+                    <div class="card">
+                        <h3>⏳ Pending Requests</h3>
+                        <div class="stat-number" id="pendingCount">0</div>
+                        <p class="stat-label">Awaiting approval</p>
+                    </div>
+                    <div class="card">
+                        <h3>✅ Approved This Month</h3>
+                        <div class="stat-number" id="approvedMonth">0</div>
+                        <p class="stat-label">Leave requests approved</p>
+                    </div>
+                    <div class="card">
+                        <h3>👥 Total Employees</h3>
+                        <div class="stat-number" id="totalEmployees">0</div>
+                        <p class="stat-label">Active employees</p>
+                    </div>
+                    <div class="card">
+                        <h3>📅 On Leave Today</h3>
+                        <div class="stat-number" id="onLeaveToday">0</div>
+                        <p class="stat-label">Currently on leave</p>
+                    </div>
+                </div>
+
+                <div class="recent-activity">
+                    <h3>Recent Leave Requests</h3>
+                    <div id="recentRequests" class="requests-list"></div>
+                </div>
+            </div>
+
+            <!-- Pending Requests Tab -->
+            <div id="pending" class="tab-content">
+                <div class="requests-container">
+                    <h2>Pending Leave Requests</h2>
+                    <div id="pendingRequestsList" class="requests-list"></div>
+                </div>
+            </div>
+
+            <!-- All Requests Tab -->
+            <div id="all-requests" class="tab-content">
+                <div class="requests-container">
+                    <h2>All Leave Requests</h2>
+                    <div class="filter-bar">
+                        <button class="filter-btn active" data-filter="all">All</button>
+                        <button class="filter-btn" data-filter="pending">Pending</button>
+                        <button class="filter-btn" data-filter="approved">Approved</button>
+                        <button class="filter-btn" data-filter="rejected">Rejected</button>
+                    </div>
+                    <div id="allRequestsList" class="requests-list"></div>
+                </div>
+            </div>
+
+            <!-- Calendar Tab -->
+            <div id="calendar" class="tab-content">
+                <div class="calendar-container">
+                    <h2>Team Leave Calendar</h2>
+                    <div class="calendar-controls">
+                        <button id="prevMonth" class="btn btn-secondary">Previous</button>
+                        <span id="currentMonth"></span>
+                        <button id="nextMonth" class="btn btn-secondary">Next</button>
+                    </div>
+                    <div id="calendarGrid" class="calendar-grid"></div>
+                    <div id="calendarLegend" class="calendar-legend"></div>
+                </div>
+            </div>
+
+            <!-- Employees Tab -->
+            <div id="employees" class="tab-content">
+                <div class="employees-container">
+                    <h2>Employee List</h2>
+                    <div id="employeesList" class="employees-list"></div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Review Modal -->
+    <div id="reviewModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Review Leave Request</h2>
+                <button class="close-modal" onclick="closeModal()">&times;</button>
+            </div>
+            <div class="modal-body" id="reviewModalBody"></div>
+            <div class="modal-footer">
+                <button onclick="closeModal()" class="btn btn-secondary">Cancel</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="notification"></div>
+
+    <script src="js/manager-dashboard.js"></script>
+</body>
+</html>
