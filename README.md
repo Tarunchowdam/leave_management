@@ -271,22 +271,6 @@ Edit `public/css/style.css` to customize colors, layouts, and design.
 npm run dev
 ```
 
-This uses nodemon for automatic server restart on file changes.
-
-### Adding New Features:
-
-1. Add API endpoints in `server/routes/`
-2. Update frontend JavaScript in `public/js/`
-3. Add HTML elements in appropriate HTML files
-4. Style new components in `public/css/style.css`
-
-## Browser Support
-
-- Chrome (latest)
-- Firefox (latest)
-- Safari (latest)
-- Edge (latest)
-- Mobile browsers (iOS Safari, Chrome Mobile)
 
 ## Future Enhancements
 
@@ -302,23 +286,4 @@ Potential features for future versions:
 - Enhanced security with JWT tokens
 - Database backup and restore functionality
 
-## Support
-
-For issues, questions, or contributions:
-- Check the troubleshooting section
-- Review code comments for detailed explanations
-- Test with provided demo accounts
-
-## License
-
-This project is provided as-is for educational and development purposes.
-
-## Acknowledgments
-
-Built with modern web technologies and best practices for a complete leave management solution.
-
----
-
-**Version**: 1.0.0  
-**Last Updated**: 2024#   l e a v e _ m a n a g e m e n t  
- 
+----
